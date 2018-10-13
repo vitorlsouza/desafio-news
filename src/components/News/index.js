@@ -5,13 +5,7 @@ import Brand from '../../assets/brand.png';
 
 const News = ({ data }) => (
   <Container>
-    <Image>
-      {data.urlToImage !== null ? (
-        <img src={data.urlToImage} alt="news" />
-      ) : (
-        <img src={Brand} alt="sem imagem" />
-      )}
-    </Image>
+    <Image>{data.urlToImage !== null ? <img src={data.urlToImage} alt="news" /> : null}</Image>
     <Content>
       <span>{data.publishedAt}</span>
       <h3>{data.title}</h3>
