@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import {
-  Container, SearchClose, SearchOpen, Close,
+  Container, SearchClose, SearchOpen, Close, CloseMenu,
 } from './styles';
 
 import Brand from '../../assets/brand.png';
@@ -11,19 +11,43 @@ import Menu from '../../assets/menu-close.png';
 class Header extends Component {
   state = {
     search: false,
+    menuClass: 'itemsDiv',
   };
 
   handleClickSearch() {
     this.setState({ search: !this.state.search });
-    console.log('teste');
   }
+
+  handleClickOpenMenu = () => {
+    this.setState({ menuClass: 'itemsDiv -active' });
+  };
+
+  handleClickCloseMenu = () => {
+    this.setState({ menuClass: 'itemsDiv' });
+  };
 
   render() {
     return (
       <Fragment>
         {!this.state.search ? (
           <Container>
-            <img src={Menu} alt="menu" className="menu" />
+            <button type="button" className="menu" onClick={this.handleClickOpenMenu}>
+              <img src={Menu} alt="menu" className="menu-image" />
+            </button>
+            <div className={this.state.menuClass}>
+              <ul className="items">
+                <li className="item">Notícias em Destaque</li>
+                <li className="item">Notícias do Brasil</li>
+                <li className="item">Notícias do EUA</li>
+                <li className="item">Notícia da Argentina</li>
+                <li className="item">Notícia da França</li>
+              </ul>
+              <CloseMenu>
+                <button type="button" onClick={this.handleClickCloseMenu}>
+                  X
+                </button>
+              </CloseMenu>
+            </div>
             <img src={Brand} alt="brand" className="brand" />
             <SearchClose>
               <button type="button" onClick={e => this.handleClickSearch()}>

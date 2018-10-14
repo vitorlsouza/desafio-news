@@ -1,8 +1,6 @@
 import React from 'react';
 import { Container, Image, Content } from './styles';
 
-import Brand from '../../assets/brand.png';
-
 const News = ({ data }) => (
   <Container>
     <Image>{data.urlToImage !== null ? <img src={data.urlToImage} alt="news" /> : null}</Image>

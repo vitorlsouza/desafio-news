@@ -8,9 +8,18 @@ injectGlobal`
     outline: none;
   }
 
+  #root {
+    position: relative;
+    overflow: hidden;
+  }
+
   body {
     background: #f0eef0;
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
+  }
+
+  ul, li {
+    list-style: none;
   }
 `;
