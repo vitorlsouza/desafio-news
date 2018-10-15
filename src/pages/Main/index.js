@@ -1,12 +1,19 @@
 import React, { Fragment } from 'react';
+
+import PropTypes from 'prop-types';
+
 import Header from '../../components/Header';
 import NewsList from '../../components/NewsList';
 
-const MyComponent = () => (
+const Main = ({ country }) => (
   <Fragment>
     <Header />
-    <NewsList />
+    <NewsList country={country} />
   </Fragment>
 );
 
-export default MyComponent;
+Main.propTypes = {
+  country: PropTypes.string.isRequired,
+};
+
+export default Main;

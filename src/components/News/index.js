@@ -1,5 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import {
   Link, Container, Image, Content,
@@ -19,14 +19,14 @@ const News = ({ data }) => (
   </Link>
 );
 
-News.propTypes = {
-  data: Proptypes.shape({
-    url: Proptypes.string,
-    urlToImage: Proptypes.string,
-    publishedAt: Proptypes.string,
-    title: Proptypes.string,
-    description: Proptypes.string,
-    author: Proptypes.string,
+News.T = {
+  data: PropTypes.shape({
+    url: PropTypes.string,
+    urlToImage: PropTypes.string,
+    publishedAt: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    author: PropTypes.string,
   }).isRequired,
 };
 

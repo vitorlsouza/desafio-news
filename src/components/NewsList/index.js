@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -13,8 +13,8 @@ import { LoadingIcon } from './styles';
 
 class NewsList extends Component {
   static propTypes = {
-    loading: Proptypes.bool.isRequired,
-    news: Proptypes.arrayOf(Proptypes.shape()).isRequired,
+    loading: PropTypes.bool.isRequired,
+    news: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   };
 
   componentDidMount() {
@@ -22,15 +22,26 @@ class NewsList extends Component {
   }
 
   loadNewsList = async () => {
-    const { getAllNewsRequest } = this.props;
-    try {
-      getAllNewsRequest();
-    } catch (error) {
-      console.log(error);
+    const { getAllNewsRequest, getCountryNewsRequest, country } = this.props;
+    if (country === undefined) {
+      try {
+        getAllNewsRequest();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (country) {
+      try {
+        getCountryNewsRequest(country);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
   render() {
+    console.log(this.props);
     const { loading, news } = this.props;
     return (
       <div>
