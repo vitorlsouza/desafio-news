@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Proptypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -11,6 +12,11 @@ import News from '../News';
 import { LoadingIcon } from './styles';
 
 class NewsList extends Component {
+  static propTypes = {
+    loading: Proptypes.bool.isRequired,
+    news: Proptypes.arrayOf().isRequired,
+  };
+
   componentDidMount() {
     this.loadNewsList();
   }
@@ -26,7 +32,6 @@ class NewsList extends Component {
 
   render() {
     const { loading, news } = this.props;
-    console.log(loading);
     return (
       <div>
         {loading ? (

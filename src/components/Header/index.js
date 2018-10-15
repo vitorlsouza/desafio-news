@@ -15,16 +15,17 @@ class Header extends Component {
     searchInput: '',
   };
 
-  handleClickSearch() {
-    this.setState({ search: !this.state.search });
-  }
+  handleClickCloseMenu = () => {
+    this.setState({ menuClass: 'itemsDiv' });
+  };
 
   handleClickOpenMenu = () => {
     this.setState({ menuClass: 'itemsDiv -active' });
   };
 
-  handleClickCloseMenu = () => {
-    this.setState({ menuClass: 'itemsDiv' });
+  handleClickSearch = () => {
+    const { search } = this.state;
+    this.setState({ search: !search });
   };
 
   inputChange(e) {
@@ -36,14 +37,15 @@ class Header extends Component {
   }
 
   render() {
+    const { search, menuClass } = this.state;
     return (
       <Fragment>
-        {!this.state.search ? (
+        {!search ? (
           <Container>
             <button type="button" className="menu" onClick={this.handleClickOpenMenu}>
               <img src={Menu} alt="menu" className="menu-image" />
             </button>
-            <div className={this.state.menuClass}>
+            <div className={menuClass}>
               <ul className="items">
                 <li className="item">Notícias em Destaque</li>
                 <li className="item">Notícias do Brasil</li>
@@ -59,7 +61,7 @@ class Header extends Component {
             </div>
             <img src={Brand} alt="brand" className="brand" />
             <SearchClose>
-              <button type="button" onClick={e => this.handleClickSearch()}>
+              <button type="button" onClick={this.handleClickSearch}>
                 <img src={SearchIcon} alt="search" className="search" />
               </button>
             </SearchClose>
@@ -75,7 +77,7 @@ class Header extends Component {
               </form>
             </SearchOpen>
             <Close>
-              <button type="button" onClick={e => this.handleClickSearch()}>
+              <button type="button" onClick={this.handleClickSearch}>
                 X
               </button>
             </Close>

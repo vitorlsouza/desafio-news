@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
