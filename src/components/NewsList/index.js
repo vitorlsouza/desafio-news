@@ -14,7 +14,7 @@ import { LoadingIcon } from './styles';
 class NewsList extends Component {
   static propTypes = {
     loading: Proptypes.bool.isRequired,
-    news: Proptypes.arrayOf().isRequired,
+    news: Proptypes.arrayOf(Proptypes.shape()).isRequired,
   };
 
   componentDidMount() {

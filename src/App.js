@@ -7,14 +7,12 @@ import store from './store';
 import './styles/global';
 import { Wrapper } from './styles/components';
 
-import Header from './components/Header';
-import NewsList from './components/NewsList';
+import Routes from './routes';
 
 const App = () => (
   <Provider store={store}>
     <Wrapper>
-      <Header />
-      <NewsList />
+      <Routes />
     </Wrapper>
   </Provider>
 );
