@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
-// import PropTypes from 'prop-types';
 
 import Main from '../pages/Main';
 
@@ -11,11 +10,5 @@ const Routes = () => (
     </Switch>
   </BrowserRouter>
 );
-
-// Routes.propTypes = {
-//   mobile: PropTypes.bool.isRequired,
-//   heightScreen: PropTypes.number.isRequired,
-//   widthScreen: PropTypes.number.isRequired,
-// };
 
 export default Routes;
