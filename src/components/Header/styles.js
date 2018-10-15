@@ -111,6 +111,10 @@ export const SearchOpen = styled.div`
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 
+  form {
+    display: flex;
+  }
+
   .search {
     height: 35px;
     padding: 5px;

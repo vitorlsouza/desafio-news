@@ -12,6 +12,7 @@ class Header extends Component {
   state = {
     search: false,
     menuClass: 'itemsDiv',
+    searchInput: '',
   };
 
   handleClickSearch() {
@@ -25,6 +26,14 @@ class Header extends Component {
   handleClickCloseMenu = () => {
     this.setState({ menuClass: 'itemsDiv' });
   };
+
+  inputChange(e) {
+    this.setState({ searchInput: e.target.value });
+  }
+
+  handleClickSearchNews(e) {
+    e.preventDefault();
+  }
 
   render() {
     return (
@@ -58,10 +67,12 @@ class Header extends Component {
         ) : (
           <Container>
             <SearchOpen>
-              <button type="button">
-                <img src={SearchIcon} alt="search" className="search" />
-              </button>
-              <input type="text" placeholder="Pesquisa" />
+              <form action="/" onSubmit={e => this.handleClickSearchNews(e)}>
+                <button type="submit">
+                  <img src={SearchIcon} alt="search" className="search" />
+                </button>
+                <input type="text" placeholder="Pesquisa" onChange={e => this.inputChange(e)} />
+              </form>
             </SearchOpen>
             <Close>
               <button type="button" onClick={e => this.handleClickSearch()}>
