@@ -5,34 +5,41 @@ import { bindActionCreators } from 'redux';
 
 import * as NewsActions from '../../store/actions/news';
 
+import Loading from '../Loading';
 import News from '../News';
 
-class NewsList extends Component {
-  state = {
-    data: [],
-  };
+import { LoadingIcon } from './styles';
 
+class NewsList extends Component {
   componentDidMount() {
     this.loadNewsList();
   }
 
   loadNewsList = async () => {
+    const { getAllNewsRequest } = this.props;
     try {
-      this.props.getAllNewsRequest();
+      getAllNewsRequest();
     } catch (error) {
       console.log(error);
     }
   };
 
   render() {
-    console.log(this.props);
+    const { loading, news } = this.props;
+    console.log(loading);
     return (
       <div>
-        <ul>
-          {this.props.news.map(d => (
-            <News key={d.title} data={d} />
-          ))}
-        </ul>
+        {loading ? (
+          <LoadingIcon>
+            <Loading />
+          </LoadingIcon>
+        ) : (
+          <ul>
+            {news.map(d => (
+              <News key={d.title} data={d} />
+            ))}
+          </ul>
+        )}
       </div>
     );
   }
@@ -42,6 +49,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(NewsActions, dispatch)
 
 const mapStateToProps = state => ({
   news: state.news.news,
+  loading: state.news.loading,
 });
 
 export default connect(
