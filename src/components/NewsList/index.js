@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import * as NewsActions from '../../store/actions/news';
 
 import Loading from '../Loading';
@@ -41,7 +40,6 @@ class NewsList extends Component {
   };
 
   render() {
-    console.log(this.props);
     const { loading, news } = this.props;
     return (
       <div>

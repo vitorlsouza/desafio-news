@@ -1,5 +1,10 @@
 import React, { Component, Fragment } from 'react';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import * as NewsActions from '../../store/actions/news';
+
 import {
   Container, SearchClose, SearchOpen, Close, CloseMenu,
 } from './styles';
@@ -9,6 +14,10 @@ import SearchIcon from '../../assets/search-close.png';
 import Menu from '../../assets/menu-close.png';
 
 class Header extends Component {
+  static propTypes = {
+    searchNewsRequest: PropTypes.func.isRequired,
+  };
+
   state = {
     search: false,
     menuClass: 'itemsDiv',
@@ -34,10 +43,15 @@ class Header extends Component {
 
   handleClickSearchNews(e) {
     e.preventDefault();
+    const { searchNewsRequest } = this.props;
+    const { searchInput } = this.state;
+    searchNewsRequest(searchInput);
+    this.handleClickSearch();
+    this.setState({ searchInput: '' });
   }
 
   render() {
-    const { search, menuClass } = this.state;
+    const { search, menuClass, searchInput } = this.state;
     return (
       <Fragment>
         {!search ? (
@@ -73,7 +87,13 @@ class Header extends Component {
                 <button type="submit">
                   <img src={SearchIcon} alt="search" className="search" />
                 </button>
-                <input type="text" placeholder="Pesquisa" onChange={e => this.inputChange(e)} />
+                <input
+                  type="text"
+                  placeholder="Pesquisa"
+                  value={searchInput}
+                  onChange={e => this.inputChange(e)}
+                  autoFocus
+                />
               </form>
             </SearchOpen>
             <Close>
@@ -88,4 +108,13 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  news: state.news.news,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(NewsActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Header);

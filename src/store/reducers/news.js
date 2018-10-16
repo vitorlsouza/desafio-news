@@ -29,6 +29,18 @@ export default function news(state = INITIAL_STATE, action) {
         news: action.payload.data,
         loading: false,
       };
+    case 'SEARCH_NEWS_REQUEST':
+      return {
+        ...state,
+        query: action.payload.country,
+        loading: true,
+      };
+    case 'SEARCH_NEWS_SUCCESS':
+      return {
+        ...state,
+        news: action.payload.data,
+        loading: false,
+      };
     default:
       return state;
   }
