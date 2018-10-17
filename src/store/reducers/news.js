@@ -1,7 +1,6 @@
 const INITIAL_STATE = {
   news: [],
   loading: false,
-  country: '',
 };
 
 export default function news(state = INITIAL_STATE, action) {

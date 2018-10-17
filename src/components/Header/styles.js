@@ -46,14 +46,14 @@ export const Container = styled.div`
 
   .item {
     padding: 15px;
-    font-size: 22px;
+    font-size: 18px;
     text-transform: uppercase;
     color: #6c9dd0;
-    border-bottom: 3px solid #e4e4e4;
-    margin: 15px;
+    margin: 5px;
 
-    &:nth-last-child(1) {
-      border-bottom: none;
+    .link {
+      text-decoration: none;
+      color: inherit;
     }
   }
 `;
@@ -149,4 +149,9 @@ export const Close = styled.div`
     font-size: 30px;
     background: #fff;
   }
+`;
+
+export const Separator = styled.div`
+  border-bottom: 3px solid #e4e4e4;
+  margin: 0 20px;
 `;

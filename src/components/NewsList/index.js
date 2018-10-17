@@ -16,8 +16,18 @@ class NewsList extends Component {
     news: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   };
 
+  state = {
+    country: '',
+  };
+
   componentDidMount() {
     this.loadNewsList();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.country !== this.props.country) {
+      this.loadNewsList();
+    }
   }
 
   loadNewsList = async () => {

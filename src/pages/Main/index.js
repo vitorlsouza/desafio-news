@@ -1,19 +1,18 @@
 import React, { Fragment } from 'react';
-
 import PropTypes from 'prop-types';
 
 import Header from '../../components/Header';
 import NewsList from '../../components/NewsList';
 
-const Main = ({ country }) => (
+const Main = ({ match }) => (
   <Fragment>
     <Header />
-    <NewsList country={country} />
+    <NewsList country={match.params.country} />
   </Fragment>
 );
 
 Main.propTypes = {
-  country: PropTypes.string.isRequired,
+  match: PropTypes.shape().isRequired,
 };
 
 export default Main;

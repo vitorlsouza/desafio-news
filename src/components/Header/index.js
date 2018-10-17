@@ -1,12 +1,14 @@
 import React, { Component, Fragment } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import * as NewsActions from '../../store/actions/news';
 
 import {
-  Container, SearchClose, SearchOpen, Close, CloseMenu,
+  Container, SearchClose, SearchOpen, Close, CloseMenu, Separator,
 } from './styles';
 
 import Brand from '../../assets/brand.png';
@@ -61,11 +63,35 @@ class Header extends Component {
             </button>
             <div className={menuClass}>
               <ul className="items">
-                <li className="item">Notícias em Destaque</li>
-                <li className="item">Notícias do Brasil</li>
-                <li className="item">Notícias do EUA</li>
-                <li className="item">Notícia da Argentina</li>
-                <li className="item">Notícia da França</li>
+                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
+                  <Link to="/" className="link">
+                    <li>Notícias em Destaque</li>
+                  </Link>
+                </button>
+                <Separator />
+                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
+                  <Link to="/br" className="link">
+                    <li>Notícias do Brasil</li>
+                  </Link>
+                </button>
+                <Separator />
+                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
+                  <Link to="/us" className="link">
+                    <li>Notícias do EUA</li>
+                  </Link>
+                </button>
+                <Separator />
+                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
+                  <Link to="/ar" className="link">
+                    <li>Notícia da Argentina</li>
+                  </Link>
+                </button>
+                <Separator />
+                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
+                  <Link to="/fr" className="link">
+                    <li>Notícia da França</li>
+                  </Link>
+                </button>
               </ul>
               <CloseMenu>
                 <button type="button" onClick={this.handleClickCloseMenu}>
@@ -73,7 +99,9 @@ class Header extends Component {
                 </button>
               </CloseMenu>
             </div>
-            <img src={Brand} alt="brand" className="brand" />
+            <Link to="/">
+              <img src={Brand} alt="brand" className="brand" />
+            </Link>
             <SearchClose>
               <button type="button" onClick={this.handleClickSearch}>
                 <img src={SearchIcon} alt="search" className="search" />
