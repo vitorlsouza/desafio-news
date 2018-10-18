@@ -18,6 +18,7 @@ import Menu from '../../assets/menu-close.png';
 class Header extends Component {
   static propTypes = {
     searchNewsRequest: PropTypes.func.isRequired,
+    getAllNewsRequest: PropTypes.func.isRequired,
   };
 
   state = {
@@ -39,14 +40,22 @@ class Header extends Component {
     this.setState({ search: !search });
   };
 
+  handleClickBrand = () => {
+    const { getAllNewsRequest } = this.props;
+
+    getAllNewsRequest();
+  };
+
   inputChange(e) {
     this.setState({ searchInput: e.target.value });
   }
 
   handleClickSearchNews(e) {
     e.preventDefault();
+
     const { searchNewsRequest } = this.props;
     const { searchInput } = this.state;
+
     searchNewsRequest(searchInput);
     this.handleClickSearch();
     this.setState({ searchInput: '' });
@@ -99,9 +108,9 @@ class Header extends Component {
                 </button>
               </CloseMenu>
             </div>
-            <Link to="/">
+            <button type="button" onClick={this.handleClickBrand}>
               <img src={Brand} alt="brand" className="brand" />
-            </Link>
+            </button>
             <SearchClose>
               <button type="button" onClick={this.handleClickSearch}>
                 <img src={SearchIcon} alt="search" className="search" />

@@ -14,10 +14,11 @@ class NewsList extends Component {
   static propTypes = {
     loading: PropTypes.bool.isRequired,
     news: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    country: PropTypes.string,
   };
 
-  state = {
-    country: '',
+  static defaultProps = {
+    country: undefined,
   };
 
   componentDidMount() {
@@ -25,13 +26,16 @@ class NewsList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.country !== this.props.country) {
+    const { country } = this.props;
+
+    if (prevProps.country !== country) {
       this.loadNewsList();
     }
   }
 
   loadNewsList = async () => {
     const { getAllNewsRequest, getCountryNewsRequest, country } = this.props;
+
     if (country === undefined) {
       try {
         getAllNewsRequest();

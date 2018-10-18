@@ -6,6 +6,7 @@ import NewsList from '../../components/NewsList';
 
 const Main = ({ match }) => (
   <Fragment>
+    {console.log(match)}
     <Header />
     <NewsList country={match.params.country} />
   </Fragment>
