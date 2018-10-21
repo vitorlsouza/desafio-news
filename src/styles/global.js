@@ -15,8 +15,6 @@ injectGlobal`
 
   body {
     background: #f0eef0;
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
   }
 
   ul, li {

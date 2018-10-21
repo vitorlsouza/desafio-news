@@ -19,7 +19,7 @@ const News = ({ data }) => (
   </Link>
 );
 
-News.T = {
+News.propTypes = {
   data: PropTypes.shape({
     url: PropTypes.string,
     urlToImage: PropTypes.string,

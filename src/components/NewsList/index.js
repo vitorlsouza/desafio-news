@@ -6,9 +6,9 @@ import { bindActionCreators } from 'redux';
 import * as NewsActions from '../../store/actions/news';
 
 import Loading from '../Loading';
-import News from '../News';
 
 import { LoadingIcon } from './styles';
+import Pagination from '../Pagination';
 
 class NewsList extends Component {
   static propTypes = {
@@ -62,11 +62,7 @@ class NewsList extends Component {
             <Loading />
           </LoadingIcon>
         ) : (
-          <ul>
-            {news.map(d => (
-              <News key={d.title} data={d} />
-            ))}
-          </ul>
+          <Pagination data={news} />
         )}
       </div>
     );
