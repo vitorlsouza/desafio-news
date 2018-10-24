@@ -2,9 +2,10 @@ import React, { Component, Fragment } from 'react';
 
 import { Link } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import PropTypes from 'prop-types';
 import * as NewsActions from '../../store/actions/news';
 
 import {

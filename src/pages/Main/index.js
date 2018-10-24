@@ -5,11 +5,14 @@ import Header from '../../components/Header';
 import NewsList from '../../components/NewsList';
 import Footer from '../../components/Footer';
 
+import { Wrapper } from './styles';
+
 const Main = ({ match }) => (
   <Fragment>
-    {console.log(match)}
-    <Header />
-    <NewsList country={match.params.country} />
+    <Wrapper>
+      <Header />
+      <NewsList country={match.params.country} />
+    </Wrapper>
     <Footer />
   </Fragment>
 );
