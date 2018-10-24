@@ -4,9 +4,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   background: #fff;
-  padding: 10px;
+  padding: 25px;
+  margin-top: 45px;
 
   img {
-    width: 50%;
+    width: 194px;
+    height: 36px;
   }
 `;

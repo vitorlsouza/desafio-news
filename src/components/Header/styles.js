@@ -15,7 +15,7 @@ export const Container = styled.div`
 
   .menu-image,
   .brand {
-    height: 25px;
+    height: 35px;
     background: transparent;
     cursor: pointer;
   }
@@ -25,7 +25,7 @@ export const Container = styled.div`
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background: rgba(0, 0, 0, 0.8);
     transform: translateX(100%);
     transition: transform 200ms linear;
@@ -33,6 +33,8 @@ export const Container = styled.div`
 
   .itemsDiv.-active {
     transform: translateX(0);
+    position: fixed;
+    top: 0;
   }
 
   .items {
@@ -40,7 +42,7 @@ export const Container = styled.div`
     top: 0;
     left: 0;
     width: 80vw;
-    height: 100vh;
+    height: 100%;
     background: rgba(255, 255, 255, 1);
   }
 
@@ -77,10 +79,10 @@ export const CloseMenu = styled.div`
 export const SearchClose = styled.div`
   display: flex;
   align-items: center;
-  width: 25px;
 
   .search {
-    height: 35px;
+    width: 47px;
+    height: 48px;
     padding: 5px;
     cursor: pointer;
   }
@@ -97,7 +99,7 @@ const searchOpenKeyframes = keyframes`
     background: #FFF;
   }
   100% {
-    width: 300px;
+    width: 70%;
     background: #FFF;
     border-radius: 15px;
   }
@@ -116,20 +118,20 @@ export const SearchOpen = styled.div`
   }
 
   .search {
-    height: 35px;
-    padding: 5px;
+    height: 32px;
     cursor: pointer;
   }
 
   input {
-    width: 100%;
-    font-size: 20px;
+    width: 60%;
+    font-size: 28px;
     border-radius: inherit;
     margin-left: 10px;
     border: 0;
   }
 
   button {
+    padding: 15px;
     border: 0;
     background: transparent;
   }
@@ -144,8 +146,8 @@ export const Close = styled.div`
 
   button {
     border: 0;
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     font-size: 30px;
     background: #fff;
   }

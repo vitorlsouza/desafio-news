@@ -109,9 +109,11 @@ class Header extends Component {
                 </button>
               </CloseMenu>
             </div>
-            <button type="button" onClick={this.handleClickBrand}>
-              <img src={Brand} alt="brand" className="brand" />
-            </button>
+            <Link to="/">
+              <button type="button" onClick={this.handleClickBrand}>
+                <img src={Brand} alt="brand" className="brand" />
+              </button>
+            </Link>
             <SearchClose>
               <button type="button" onClick={this.handleClickSearch}>
                 <img src={SearchIcon} alt="search" className="search" />
