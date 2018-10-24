@@ -117,9 +117,9 @@ class Pagination extends Component {
           </ul>
         </div>
         <Buttons>
-          {pages.map((p, index) => (
+          {pages.map(p => (
             <Button
-              key={index}
+              key={p}
               className="page"
               value={p}
               type="button"
