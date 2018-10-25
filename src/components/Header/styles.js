@@ -9,6 +9,11 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  button {
+    border: none;
+    background: transparent;
+  }
+
   .menu {
     border: 0;
     background: transparent;
@@ -17,7 +22,6 @@ export const Container = styled.div`
   .menu-image,
   .brand {
     height: 35px;
-    background: transparent;
     cursor: pointer;
   }
 
@@ -67,8 +71,8 @@ export const CloseMenu = styled.div`
   right: 15px;
   background: #fff;
   border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
+  border: none;
+  overflow: hidden;
 
   button {
     width: 50px;
@@ -103,6 +107,7 @@ const searchOpenKeyframes = keyframes`
     width: 70%;
     background: #FFF;
     border-radius: 15px;
+    box-shadow: 0px 3px 7px 0 rgba(19, 18, 20, 0.09);
   }
 `;
 
@@ -144,6 +149,7 @@ export const Close = styled.div`
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
+  box-shadow: 0px 3px 7px 0 rgba(19, 18, 20, 0.09);
 
   button {
     border: 0;
@@ -151,6 +157,7 @@ export const Close = styled.div`
     height: 65px;
     font-size: 30px;
     background: #fff;
+    cursor: pointer;
   }
 `;
 
