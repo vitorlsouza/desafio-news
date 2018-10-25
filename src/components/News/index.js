@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import moment from 'moment';
+
 import {
   Link, Container, Image, Content,
 } from './styles';
@@ -10,10 +12,15 @@ const News = ({ data }) => (
     <Container>
       <Image>{data.urlToImage !== null ? <img src={data.urlToImage} alt="news" /> : null}</Image>
       <Content>
-        <span>{data.publishedAt}</span>
+        <span>{moment(data.publishedAt.substr(0, 10)).format('DD/MM/YYYY')}</span>
         <h3>{data.title}</h3>
         <p>{data.description}</p>
-        <strong>{data.author}</strong>
+        {data.author ? (
+          <h4>
+POR :
+            {` ${data.author}`}
+          </h4>
+        ) : null}
       </Content>
     </Container>
   </Link>

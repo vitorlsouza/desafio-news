@@ -20,7 +20,7 @@ export const Image = styled.div`
   background: #8b8b8b;
 
   img {
-    width: 100% !important;
+    width: 100%;
     height: auto;
     display: block;
   }
@@ -33,16 +33,26 @@ export const Content = styled.div`
   padding: 15px;
 
   span {
-    margin-bottom: 5px;
+    font-size: 25px;
+    color: #a7a7a7;
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
   }
 
-  h3 {
+  h3,
+  h4 {
     text-align: center;
-    margin-bottom: 10px;
+    font-weight: 900;
+    color: #86a0d1;
+    letter-spacing: 0.3px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
   }
 
   p {
     text-align: center;
-    margin-bottom: 10px;
+    font-size: 22.5px;
+    color: #a7a7a7;
+    margin-bottom: 30px;
   }
 `;

@@ -7,6 +7,7 @@ export const Fragment = styled.div`
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   .menu {
     border: 0;
