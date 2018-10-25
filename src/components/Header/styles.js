@@ -21,7 +21,7 @@ export const Container = styled.div`
 
   .menu-image,
   .brand {
-    height: 35px;
+    height: 30px;
     cursor: pointer;
   }
 
@@ -86,8 +86,8 @@ export const SearchClose = styled.div`
   align-items: center;
 
   .search {
-    width: 47px;
-    height: 48px;
+    width: 40px;
+    height: 41px;
     padding: 5px;
     cursor: pointer;
   }
@@ -124,7 +124,7 @@ export const SearchOpen = styled.div`
   }
 
   .search {
-    height: 32px;
+    height: 28px;
     cursor: pointer;
   }
 
@@ -153,8 +153,8 @@ export const Close = styled.div`
 
   button {
     border: 0;
-    width: 65px;
-    height: 65px;
+    width: 56px;
+    height: 56px;
     font-size: 30px;
     background: #fff;
     cursor: pointer;
