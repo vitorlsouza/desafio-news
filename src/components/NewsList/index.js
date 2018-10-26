@@ -12,6 +12,8 @@ import Pagination from '../Pagination';
 
 class NewsList extends Component {
   static propTypes = {
+    getAllNewsRequest: PropTypes.func.isRequired,
+    getCountryNewsRequest: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     news: PropTypes.arrayOf(PropTypes.shape()).isRequired,
     page: PropTypes.string.isRequired,
@@ -31,7 +33,7 @@ class NewsList extends Component {
 
     if (prevProps.country !== country) {
       changePage('1');
-      this.loadNewsList();
+      this.loadNewsList(prevProps.country);
     }
 
     if (prevProps.page !== page) {
@@ -39,15 +41,18 @@ class NewsList extends Component {
     }
   }
 
-  loadNewsList = async () => {
-    console.log(this.props);
+  loadNewsList = (props) => {
     const {
       getAllNewsRequest, getCountryNewsRequest, country, page,
     } = this.props;
 
     if (country === undefined) {
       try {
-        getAllNewsRequest(page);
+        if (props !== undefined) {
+          getAllNewsRequest('1');
+        } else {
+          getAllNewsRequest(page);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -63,7 +68,9 @@ class NewsList extends Component {
   };
 
   render() {
-    const { loading, news } = this.props;
+    const { loading, news, page } = this.props;
+    console.log(page);
+    console.log(this.props);
     return (
       <div>
         {loading ? (
