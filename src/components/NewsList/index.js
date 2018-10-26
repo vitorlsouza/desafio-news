@@ -14,8 +14,9 @@ class NewsList extends Component {
   static propTypes = {
     getAllNewsRequest: PropTypes.func.isRequired,
     getCountryNewsRequest: PropTypes.func.isRequired,
+    changePage: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
-    news: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    news: PropTypes.shape().isRequired,
     page: PropTypes.string.isRequired,
     country: PropTypes.string,
   };
@@ -68,9 +69,7 @@ class NewsList extends Component {
   };
 
   render() {
-    const { loading, news, page } = this.props;
-    console.log(page);
-    console.log(this.props);
+    const { loading, news } = this.props;
     return (
       <div>
         {loading ? (
