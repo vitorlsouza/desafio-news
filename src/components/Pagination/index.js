@@ -1,53 +1,47 @@
 import React, { Component, Fragment } from 'react';
 
+import PropTypes from 'prop-types';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as NewsActions from '../../store/actions/news';
+
 import News from '../News';
 
 import { Buttons, Button } from './styles';
 
 class Pagination extends Component {
+  static propTypes = {
+    data: PropTypes.shape({}).isRequired,
+    currentPage: PropTypes.string.isRequired,
+    changePage: PropTypes.func.isRequired,
+  };
+
   state = {
-    itemsPerPage: 2,
-    currentPage: 1,
+    itemsPerPage: 7,
     visiblePages: 3,
     totalPages: 0,
-    items: [],
     pages: [],
   };
 
   componentDidMount() {
-    this.loadItems();
-  }
-
-  loadItems = () => {
     this.countPages();
-    this.itemsOnThisPage();
-  };
+  }
 
   countPages = () => {
     const { itemsPerPage } = this.state;
     const { data } = this.props;
 
-    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const totalPages = Math.ceil(data.totalResults / itemsPerPage);
 
     this.setState({ totalPages }, () => {
       this.pagination();
     });
   };
 
-  itemsOnThisPage = () => {
-    const { data } = this.props;
-    const { itemsPerPage, currentPage } = this.state;
-
-    const items = data.slice(
-      itemsPerPage * (currentPage - 1),
-      itemsPerPage * (currentPage - 1) + itemsPerPage,
-    );
-
-    this.setState({ items });
-  };
-
   pagination = () => {
-    const { totalPages, currentPage, visiblePages } = this.state;
+    const { totalPages, visiblePages } = this.state;
+    const { currentPage } = this.props;
 
     const numbers = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -56,62 +50,57 @@ class Pagination extends Component {
 
     let page = [];
 
-    if (currentPage == 1) {
-      console.log('page 1');
+    if (+currentPage === 1) {
       page = numbers.slice(currentPage, currentPage + visiblePages);
     }
 
-    if (currentPage == 2) {
-      console.log('page 2');
+    if (+currentPage === 2) {
       page = numbers.slice(currentPage - 1, currentPage + visiblePages);
     }
 
-    if (currentPage >= 3 && currentPage < totalPages - 1) {
-      console.log('page maior que o terceiro e menor que o antepenultimo');
+    if (+currentPage >= 3 && currentPage < totalPages - 1) {
       page = numbers.slice(currentPage - 2, currentPage + visiblePages);
     }
 
-    if (currentPage == totalPages - 1) {
-      console.log('penultimo');
+    if (+currentPage === totalPages - 1) {
       page = numbers.slice(currentPage - 3, currentPage + visiblePages);
     }
 
-    if (currentPage == totalPages) {
-      console.log('ultimo');
+    if (+currentPage === totalPages) {
       page = numbers.slice(currentPage - 4, currentPage + visiblePages);
     }
 
     const pages = [1, page[0], page[1], page[2], totalPages];
     this.setState({ pages });
+    this.activePage(currentPage);
   };
 
   onChangePage = (e) => {
-    this.setState({ currentPage: e.target.value }, () => {
-      this.loadItems();
-    });
-    this.activePage(e);
+    const { changePage } = this.props;
+    changePage(e.target.value);
   };
 
-  activePage = (e) => {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach((p) => {
-      if (p.textContent === e.target.value) {
-        console.log(p);
-        p.setAttribute('id', 'active');
-      } else {
-        console.log(p);
-        p.setAttribute('id', 'normal');
-      }
-    });
+  activePage = (page) => {
+    setTimeout(() => {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach((p) => {
+        if (p.textContent === page) {
+          p.setAttribute('id', 'active');
+        } else {
+          p.setAttribute('id', 'normal');
+        }
+      });
+    }, 10);
   };
 
   render() {
-    const { items, pages } = this.state;
+    const { pages } = this.state;
+    const { data } = this.props;
     return (
       <Fragment>
         <div id="newList">
           <ul>
-            {items.map(d => (
+            {data.articles.map(d => (
               <News key={d.title} data={d} />
             ))}
           </ul>
@@ -134,4 +123,13 @@ class Pagination extends Component {
   }
 }
 
-export default Pagination;
+const mapStateToProps = state => ({
+  currentPage: state.news.page,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(NewsActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Pagination);

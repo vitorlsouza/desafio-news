@@ -1,5 +1,6 @@
-export const getAllNewsRequest = () => ({
+export const getAllNewsRequest = page => ({
   type: 'GET_ALL_NEWS_REQUEST',
+  payload: { page },
 });
 
 export const getAllNewsSuccess = data => ({
@@ -25,4 +26,9 @@ export const searchNewsRequest = query => ({
 export const searchNewsSuccess = data => ({
   type: 'SEARCH_NEWS_SUCCESS',
   payload: { data },
+});
+
+export const changePage = page => ({
+  type: 'CHANGE_PAGE',
+  payload: { page },
 });

@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   news: [],
-  loading: false,
+  loading: true,
+  page: '1',
 };
 
 export default function news(state = INITIAL_STATE, action) {
@@ -39,6 +40,11 @@ export default function news(state = INITIAL_STATE, action) {
         ...state,
         news: action.payload.data,
         loading: false,
+      };
+    case 'CHANGE_PAGE':
+      return {
+        page: action.payload.page,
+        loading: true,
       };
     default:
       return state;

@@ -14,6 +14,7 @@ class NewsList extends Component {
   static propTypes = {
     loading: PropTypes.bool.isRequired,
     news: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    page: PropTypes.string.isRequired,
     country: PropTypes.string,
   };
 
@@ -26,19 +27,25 @@ class NewsList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { country } = this.props;
+    const { country, page } = this.props;
 
     if (prevProps.country !== country) {
+      this.loadNewsList();
+    }
+
+    if (prevProps.page !== page) {
       this.loadNewsList();
     }
   }
 
   loadNewsList = async () => {
-    const { getAllNewsRequest, getCountryNewsRequest, country } = this.props;
+    const {
+      getAllNewsRequest, getCountryNewsRequest, country, page,
+    } = this.props;
 
     if (country === undefined) {
       try {
-        getAllNewsRequest();
+        getAllNewsRequest(page);
       } catch (error) {
         console.log(error);
       }
@@ -74,6 +81,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(NewsActions, dispatch)
 const mapStateToProps = state => ({
   news: state.news.news,
   loading: state.news.loading,
+  page: state.news.page,
 });
 
 export default connect(
