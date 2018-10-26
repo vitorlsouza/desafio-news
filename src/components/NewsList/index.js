@@ -27,9 +27,10 @@ class NewsList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { country, page } = this.props;
+    const { country, page, changePage } = this.props;
 
     if (prevProps.country !== country) {
+      changePage('1');
       this.loadNewsList();
     }
 
@@ -39,6 +40,7 @@ class NewsList extends Component {
   }
 
   loadNewsList = async () => {
+    console.log(this.props);
     const {
       getAllNewsRequest, getCountryNewsRequest, country, page,
     } = this.props;
@@ -53,7 +55,7 @@ class NewsList extends Component {
 
     if (country) {
       try {
-        getCountryNewsRequest(country);
+        getCountryNewsRequest(country, page);
       } catch (error) {
         console.log(error);
       }

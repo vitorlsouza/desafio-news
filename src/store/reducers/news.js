@@ -10,6 +10,7 @@ export default function news(state = INITIAL_STATE, action) {
       return {
         ...state,
         loading: true,
+        page: action.payload.page,
       };
     case 'GET_ALL_NEWS_SUCCESS':
       return {

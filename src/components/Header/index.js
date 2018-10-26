@@ -20,6 +20,7 @@ class Header extends Component {
   static propTypes = {
     searchNewsRequest: PropTypes.func.isRequired,
     getAllNewsRequest: PropTypes.func.isRequired,
+    page: PropTypes.string.isRequired,
   };
 
   state = {
@@ -44,7 +45,7 @@ class Header extends Component {
   handleClickBrand = () => {
     const { getAllNewsRequest } = this.props;
 
-    getAllNewsRequest();
+    getAllNewsRequest('1');
   };
 
   inputChange(e) {
@@ -54,10 +55,10 @@ class Header extends Component {
   handleClickSearchNews(e) {
     e.preventDefault();
 
-    const { searchNewsRequest } = this.props;
+    const { searchNewsRequest, page } = this.props;
     const { searchInput } = this.state;
 
-    searchNewsRequest(searchInput);
+    searchNewsRequest(searchInput, page);
     this.handleClickSearch();
     this.setState({ searchInput: '' });
   }
@@ -150,6 +151,7 @@ class Header extends Component {
 
 const mapStateToProps = state => ({
   news: state.news.news,
+  page: state.news.page,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(NewsActions, dispatch);

@@ -8,9 +8,9 @@ export const getAllNewsSuccess = data => ({
   payload: { data },
 });
 
-export const getCountryNewsRequest = country => ({
+export const getCountryNewsRequest = (country, page) => ({
   type: 'GET_COUNTRY_NEWS_REQUEST',
-  payload: { country },
+  payload: { country, page },
 });
 
 export const getCountryNewsSuccess = data => ({
@@ -18,9 +18,9 @@ export const getCountryNewsSuccess = data => ({
   payload: { data },
 });
 
-export const searchNewsRequest = query => ({
+export const searchNewsRequest = (query, page) => ({
   type: 'SEARCH_NEWS_REQUEST',
-  payload: { query },
+  payload: { query, page },
 });
 
 export const searchNewsSuccess = data => ({
