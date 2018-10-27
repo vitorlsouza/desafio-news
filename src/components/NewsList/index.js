@@ -14,11 +14,14 @@ class NewsList extends Component {
   static propTypes = {
     getAllNewsRequest: PropTypes.func.isRequired,
     getCountryNewsRequest: PropTypes.func.isRequired,
+    searchNewsRequest: PropTypes.func.isRequired,
     changePage: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     news: PropTypes.shape().isRequired,
     page: PropTypes.string.isRequired,
     country: PropTypes.string,
+    query: PropTypes.string.isRequired,
+    search: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
@@ -44,14 +47,25 @@ class NewsList extends Component {
 
   loadNewsList = (props) => {
     const {
-      getAllNewsRequest, getCountryNewsRequest, country, page,
+      getAllNewsRequest,
+      getCountryNewsRequest,
+      searchNewsRequest,
+      query,
+      country,
+      page,
+      search,
     } = this.props;
 
     if (country === undefined) {
       try {
         if (props !== undefined) {
+          console.log('teste 1');
           getAllNewsRequest('1');
+        } else if (search) {
+          console.log('teste 3');
+          searchNewsRequest(query, page);
         } else {
+          console.log('teste 2');
           getAllNewsRequest(page);
         }
       } catch (error) {
@@ -90,6 +104,8 @@ const mapStateToProps = state => ({
   news: state.news.news,
   loading: state.news.loading,
   page: state.news.page,
+  search: state.news.search,
+  query: state.news.query,
 });
 
 export default connect(
