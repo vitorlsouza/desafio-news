@@ -11,7 +11,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   background: #fff;
-  margin: 20px 0;
   border-radius: 15px;
   overflow: hidden;
 `;

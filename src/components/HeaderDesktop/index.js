@@ -55,16 +55,10 @@ class HeaderDesktop extends Component {
         </Link>
         <Search>
           <form action="/" onSubmit={e => this.handleClickSearchNews(e)}>
+            <input type="text" value={searchInput} onChange={e => this.inputChange(e)} autoFocus />
             <button type="submit">
               <img src={SearchIcon} alt="search" className="search" />
             </button>
-            <input
-              type="text"
-              placeholder="Pesquisa"
-              value={searchInput}
-              onChange={e => this.inputChange(e)}
-              autoFocus
-            />
           </form>
         </Search>
       </Container>

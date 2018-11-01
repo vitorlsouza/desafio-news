@@ -7,7 +7,9 @@ import Navigation from '../../components/Navigation';
 import NewsList from '../../components/NewsList';
 import Footer from '../../components/Footer';
 
-import { Wrapper, Mobile, Desktop } from './styles';
+import {
+  Wrapper, Mobile, Desktop, Nav,
+} from './styles';
 
 const Main = ({ match }) => (
   <Fragment>
@@ -17,8 +19,12 @@ const Main = ({ match }) => (
       </Mobile>
       <Desktop>
         <HeaderDesktop className="desktop" />
-        <Navigation className="nav" />
       </Desktop>
+    </Wrapper>
+    <Nav>
+      <Navigation />
+    </Nav>
+    <Wrapper>
       <NewsList country={match.params.country} />
     </Wrapper>
     <Footer />

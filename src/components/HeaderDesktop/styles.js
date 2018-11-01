@@ -8,10 +8,11 @@ export const Container = styled.div`
   .brand {
     height: 46px;
     cursor: pointer;
+  }
 
-    @media (max-width: 895px) {
-      height: 36px;
-    }
+  button {
+    border: none;
+    background: transparent;
   }
 `;
 
@@ -20,23 +21,32 @@ export const Search = styled.div`
   position: absolute;
   right: 20px;
   width: 290px;
+  height: 44px;
+  border-radius: 22px;
+  box-shadow: 0px 3px 7px 0 rgba(19, 18, 20, 0.09);
   background: #fff;
-  border-radius: 15px;
+
+  @media (max-width: 890px) {
+    width: 220px;
+  }
 
   form {
     display: flex;
+    height: 44px;
+    align-items: center;
   }
 
   .search {
-    height: 28px;
+    width: 22px;
+    height: 21px;
     cursor: pointer;
   }
 
   input {
-    width: 60%;
+    width: 80%;
     font-size: 28px;
     border-radius: inherit;
-    margin-left: 10px;
+    margin-left: 20px;
     border: 0;
   }
 
@@ -44,9 +54,5 @@ export const Search = styled.div`
     padding: 15px;
     border: 0;
     background: transparent;
-  }
-
-  @media (max-width: 895px) {
-    width: 250px;
   }
 `;
