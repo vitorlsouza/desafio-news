@@ -11,7 +11,9 @@ const Footer = ({ loading }) => (
   <div>
     {loading ? null : (
       <Container className="footer">
-        <img src={Logo} alt="logo" />
+        <a href="http://jobs.webedia.group/frontend">
+          <img src={Logo} alt="logo" />
+        </a>
       </Container>
     )}
   </div>

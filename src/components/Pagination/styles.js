@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Buttons = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 40px;
 `;
 
@@ -15,6 +15,7 @@ export const Button = styled.button`
   background: #ffffff;
   border-radius: 50%;
   border: none;
+  margin-right: 20px;
 
   &#active {
     width: 60px;

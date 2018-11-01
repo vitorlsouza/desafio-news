@@ -16,7 +16,7 @@ import Brand from '../../assets/brand.png';
 import SearchIcon from '../../assets/search-close.png';
 import Menu from '../../assets/menu-close.png';
 
-class Header extends Component {
+class HeaderMobile extends Component {
   static propTypes = {
     searchNewsRequest: PropTypes.func.isRequired,
     getAllNewsRequest: PropTypes.func.isRequired,
@@ -159,4 +159,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(NewsActions, dispatch)
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Header);
+)(HeaderMobile);

@@ -9,7 +9,7 @@ const pageSize = 7;
 export function* getAllNews(action) {
   const { data } = yield call(
     api.get,
-    `top-headlines?q=Trump&pageSize=${pageSize}&page=${action.payload.page}&apiKey=${apiKey}`,
+    `everything?q=brasil&pageSize=${pageSize}&page=${action.payload.page}&apiKey=${apiKey}`,
   );
 
   const newsData = data;

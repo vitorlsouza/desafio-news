@@ -1,16 +1,24 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Header from '../../components/Header';
+import HeaderMobile from '../../components/HeaderMobile';
+import HeaderDesktop from '../../components/HeaderDesktop';
+import Navigation from '../../components/Navigation';
 import NewsList from '../../components/NewsList';
 import Footer from '../../components/Footer';
 
-import { Wrapper } from './styles';
+import { Wrapper, Mobile, Desktop } from './styles';
 
 const Main = ({ match }) => (
   <Fragment>
     <Wrapper>
-      <Header />
+      <Mobile>
+        <HeaderMobile className="mobile" />
+      </Mobile>
+      <Desktop>
+        <HeaderDesktop className="desktop" />
+        <Navigation className="nav" />
+      </Desktop>
       <NewsList country={match.params.country} />
     </Wrapper>
     <Footer />
