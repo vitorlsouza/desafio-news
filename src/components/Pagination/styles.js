@@ -1,5 +1,40 @@
 import styled from 'styled-components';
 
+export const Articles = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: 760px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 760px) {
+    a {
+      width: 466px;
+      height: 467px;
+      margin-top: 20px;
+      margin-bottom: 28.8px;
+    }
+
+    a:first-child {
+      margin-right: 30px;
+    }
+
+    a:last-child {
+      margin-left: 30px;
+    }
+
+    a:nth-child(n + 3):nth-child(-n + 4) {
+      margin-right: 29.8px;
+    }
+
+    a:nth-child(n + 3):nth-child(-n + 5) {
+      width: 300.5px;
+      height: 360.3px;
+    }
+  }
+`;
+
 export const Buttons = styled.div`
   display: flex;
   justify-content: center;

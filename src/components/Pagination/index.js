@@ -8,7 +8,7 @@ import * as NewsActions from '../../store/actions/news';
 
 import News from '../News';
 
-import { Buttons, Button } from './styles';
+import { Articles, Buttons, Button } from './styles';
 
 class Pagination extends Component {
   static propTypes = {
@@ -98,13 +98,11 @@ class Pagination extends Component {
     const { data } = this.props;
     return (
       <Fragment>
-        <div id="newList">
-          <ul>
-            {data.articles.map(d => (
-              <News key={d.title} data={d} />
-            ))}
-          </ul>
-        </div>
+        <Articles>
+          {data.articles.map(d => (
+            <News key={d.title} data={d} />
+          ))}
+        </Articles>
         <Buttons>
           {pages.map(p => (
             <Button

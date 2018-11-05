@@ -7,7 +7,7 @@ import * as NewsActions from '../../store/actions/news';
 
 import Loading from '../Loading';
 
-import { LoadingIcon } from './styles';
+import { Container, LoadingIcon } from './styles';
 import Pagination from '../Pagination';
 
 class NewsList extends Component {
@@ -85,7 +85,7 @@ class NewsList extends Component {
   render() {
     const { loading, news } = this.props;
     return (
-      <div>
+      <Container>
         {loading ? (
           <LoadingIcon>
             <Loading />
@@ -93,7 +93,7 @@ class NewsList extends Component {
         ) : (
           <Pagination data={news} />
         )}
-      </div>
+      </Container>
     );
   }
 }
