@@ -81,25 +81,25 @@ class HeaderMobile extends Component {
                 </button>
                 <Separator />
                 <button type="button" className="item" onClick={this.handleClickCloseMenu}>
-                  <Link to="/br" className="link">
+                  <Link to="/brasil" className="link">
                     <li>Notícias do Brasil</li>
                   </Link>
                 </button>
                 <Separator />
                 <button type="button" className="item" onClick={this.handleClickCloseMenu}>
-                  <Link to="/us" className="link">
+                  <Link to="/eua" className="link">
                     <li>Notícias do EUA</li>
                   </Link>
                 </button>
                 <Separator />
                 <button type="button" className="item" onClick={this.handleClickCloseMenu}>
-                  <Link to="/ar" className="link">
+                  <Link to="/argentina" className="link">
                     <li>Notícia da Argentina</li>
                   </Link>
                 </button>
                 <Separator />
                 <button type="button" className="item" onClick={this.handleClickCloseMenu}>
-                  <Link to="/fr" className="link">
+                  <Link to="/franca" className="link">
                     <li>Notícia da França</li>
                   </Link>
                 </button>

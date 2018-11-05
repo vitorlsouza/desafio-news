@@ -11,16 +11,16 @@ const Navigation = () => (
         <Link to="/" className="link">
           <Item>Notícias em Destaque</Item>
         </Link>
-        <Link to="/br" className="link">
+        <Link to="/brasil" className="link">
           <Item>Notícias do Brasil</Item>
         </Link>
-        <Link to="/us" className="link">
+        <Link to="/eua" className="link">
           <Item>Notícias do EUA</Item>
         </Link>
-        <Link to="/ar" className="link">
+        <Link to="/argentina" className="link">
           <Item>Notícias da Argentina</Item>
         </Link>
-        <Link to="/fr" className="link">
+        <Link to="/franca" className="link">
           <Item>Notícias da França</Item>
         </Link>
       </Items>

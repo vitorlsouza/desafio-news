@@ -33,9 +33,10 @@ POR :
         {data.urlToImage !== null ? <img src={data.urlToImage} alt="news" /> : null}
       </ImageDesktop>
       <ContentDesktop>
+        {console.log(data)}
         <span>{moment(data.publishedAt.substr(0, 10)).format('DD/MM/YYYY')}</span>
         <strong>{`${data.title.substr(0, 50)}...`}</strong>
-        <p>{`${data.description.substr(0, 100)}...`}</p>
+        {data.description ? <p>{`${data.description.substr(0, 100)}...`}</p> : null}
         {data.author ? (
           <strong>
 strongOR :

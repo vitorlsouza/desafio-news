@@ -20,7 +20,7 @@ export function* getAllNews(action) {
 export function* getCountryNews(action) {
   const { data } = yield call(
     api.get,
-    `top-headlines?country=${action.payload.country}&pageSize=${pageSize}&page=${
+    `everything?q=${action.payload.country}&pageSize=${pageSize}&page=${
       action.payload.page
     }&apiKey=${apiKey}`,
   );
