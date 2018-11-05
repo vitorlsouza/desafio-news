@@ -13,6 +13,7 @@ export const Container = styled.div`
   background: #fff;
   border-radius: 15px;
   overflow: hidden;
+  margin-bottom: 31px;
 
   @media (min-width: 760px) {
     width: inherit;
