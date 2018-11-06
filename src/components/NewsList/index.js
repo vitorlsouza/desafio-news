@@ -9,6 +9,7 @@ import Loading from '../Loading';
 
 import { Container, LoadingIcon } from './styles';
 import Pagination from '../Pagination';
+import NotFound from '../NotFound';
 
 class NewsList extends Component {
   static propTypes = {
@@ -22,6 +23,7 @@ class NewsList extends Component {
     country: PropTypes.string,
     query: PropTypes.string.isRequired,
     search: PropTypes.bool.isRequired,
+    error: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
@@ -83,13 +85,15 @@ class NewsList extends Component {
   };
 
   render() {
-    const { loading, news } = this.props;
+    const { loading, news, error } = this.props;
     return (
       <Container>
         {loading ? (
           <LoadingIcon>
             <Loading />
           </LoadingIcon>
+        ) : error || !news.totalResults ? (
+          <NotFound />
         ) : (
           <Pagination data={news} />
         )}
@@ -106,6 +110,7 @@ const mapStateToProps = state => ({
   page: state.news.page,
   search: state.news.search,
   query: state.news.query,
+  error: state.news.error,
 });
 
 export default connect(

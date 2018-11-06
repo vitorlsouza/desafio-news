@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import moment from 'moment';
@@ -13,39 +13,40 @@ import {
 } from './styles';
 
 const News = ({ data }) => (
-  <Link href={data.url}>
-    <Container>
-      <ImageMobile>
-        {data.urlToImage !== null ? <img src={data.urlToImage} alt="news" /> : null}
-      </ImageMobile>
-      <ContentMobile>
-        <span>{moment(data.publishedAt.substr(0, 10)).format('DD/MM/YYYY')}</span>
-        <strong>{data.title}</strong>
-        <p>{data.description}</p>
-        {data.author ? (
-          <strong>
+  <Fragment>
+    <Link href={data.url}>
+      <Container>
+        <ImageMobile>
+          {data.urlToImage !== null ? <img src={data.urlToImage} alt="news" /> : null}
+        </ImageMobile>
+        <ContentMobile>
+          <span>{moment(data.publishedAt.substr(0, 10)).format('DD/MM/YYYY')}</span>
+          <strong>{data.title}</strong>
+          <p>{data.description}</p>
+          {data.author ? (
+            <strong>
 POR :
-            {data.author}
-          </strong>
-        ) : null}
-      </ContentMobile>
-      <ImageDesktop>
-        {data.urlToImage !== null ? <img src={data.urlToImage} alt="news" /> : null}
-      </ImageDesktop>
-      <ContentDesktop>
-        {console.log(data)}
-        <span>{moment(data.publishedAt.substr(0, 10)).format('DD/MM/YYYY')}</span>
-        <strong>{`${data.title.substr(0, 50)}...`}</strong>
-        {data.description ? <p>{`${data.description.substr(0, 100)}...`}</p> : null}
-        {data.author ? (
-          <strong>
+              {data.author}
+            </strong>
+          ) : null}
+        </ContentMobile>
+        <ImageDesktop>
+          {data.urlToImage !== null ? <img src={data.urlToImage} alt="news" /> : null}
+        </ImageDesktop>
+        <ContentDesktop>
+          <span>{moment(data.publishedAt.substr(0, 10)).format('DD/MM/YYYY')}</span>
+          <strong>{`${data.title.substr(0, 50)}...`}</strong>
+          {data.description ? <p>{`${data.description.substr(0, 100)}...`}</p> : null}
+          {data.author ? (
+            <strong>
 strongOR :
-            {data.author}
-          </strong>
-        ) : null}
-      </ContentDesktop>
-    </Container>
-  </Link>
+              {data.author}
+            </strong>
+          ) : null}
+        </ContentDesktop>
+      </Container>
+    </Link>
+  </Fragment>
 );
 
 News.propTypes = {

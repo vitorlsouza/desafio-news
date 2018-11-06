@@ -28,6 +28,11 @@ export const searchNewsSuccess = data => ({
   payload: { data },
 });
 
+export const searchNewsFailure = error => ({
+  type: 'SEARCH_NEWS_FAILURE',
+  payload: { error },
+});
+
 export const changePage = page => ({
   type: 'CHANGE_PAGE',
   payload: { page },

@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   page: '1',
   search: false,
   query: '',
+  error: false,
 };
 
 export default function news(state = INITIAL_STATE, action) {
@@ -20,6 +21,7 @@ export default function news(state = INITIAL_STATE, action) {
         ...state,
         news: action.payload.data,
         loading: false,
+        error: false,
       };
     case 'GET_COUNTRY_NEWS_REQUEST':
       return {
@@ -33,6 +35,7 @@ export default function news(state = INITIAL_STATE, action) {
         ...state,
         news: action.payload.data,
         loading: false,
+        error: false,
       };
     case 'SEARCH_NEWS_REQUEST':
       return {
@@ -46,6 +49,13 @@ export default function news(state = INITIAL_STATE, action) {
         news: action.payload.data,
         loading: false,
         search: true,
+        error: false,
+      };
+    case 'SEARCH_NEWS_FAILURE':
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
       };
     case 'CHANGE_PAGE':
       return {
