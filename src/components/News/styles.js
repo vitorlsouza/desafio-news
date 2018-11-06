@@ -99,14 +99,14 @@ export const ContentDesktop = styled.div`
   height: 174px;
 
   span {
-    font-size: 12px;
+    font-size: 9px;
     color: #a7a7a7;
     letter-spacing: 0.3px;
   }
 
   strong {
     text-align: center;
-    font-size: 12px;
+    font-size: 9px;
     font-weight: 900;
     color: #86a0d1;
     letter-spacing: 0.3px;
@@ -115,8 +115,22 @@ export const ContentDesktop = styled.div`
 
   p {
     text-align: center;
-    font-size: 12px;
+    font-size: 9px;
     color: #a7a7a7;
+  }
+
+  @media (min-width: 962px) {
+    span {
+      font-size: 12px;
+    }
+
+    strong {
+      font-size: 12px;
+    }
+
+    p {
+      font-size: 12px;
+    }
   }
 
   @media (max-width: 760px) {
