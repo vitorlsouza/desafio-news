@@ -30,7 +30,7 @@ export const ImageMobile = styled.div`
     display: block;
   }
 
-  @media (min-width: 760px) {
+  @media (min-width: 761px) {
     display: none;
   }
 `;
@@ -65,7 +65,7 @@ export const ContentMobile = styled.div`
     margin-bottom: 30px;
   }
 
-  @media (min-width: 760px) {
+  @media (min-width: 761px) {
     display: none;
   }
 `;
@@ -102,7 +102,6 @@ export const ContentDesktop = styled.div`
     font-size: 12px;
     color: #a7a7a7;
     letter-spacing: 0.3px;
-    /* margin-bottom: 8px; */
   }
 
   strong {
@@ -111,7 +110,6 @@ export const ContentDesktop = styled.div`
     font-weight: 900;
     color: #86a0d1;
     letter-spacing: 0.3px;
-    /* margin-bottom: 12px; */
     text-transform: uppercase;
   }
 
@@ -119,7 +117,6 @@ export const ContentDesktop = styled.div`
     text-align: center;
     font-size: 12px;
     color: #a7a7a7;
-    /* margin-bottom: 20px; */
   }
 
   @media (max-width: 760px) {

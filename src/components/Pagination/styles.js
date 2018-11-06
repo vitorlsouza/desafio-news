@@ -3,15 +3,16 @@ import styled from 'styled-components';
 export const Articles = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   @media (max-width: 760px) {
     flex-direction: column;
   }
 
-  @media (min-width: 760px) {
+  @media (min-width: 761px) {
     a {
-      width: 466px;
-      height: 467px;
+      width: 335px;
+      height: 334px;
       margin-top: 20px;
       margin-bottom: 28.8px;
     }
@@ -26,6 +27,18 @@ export const Articles = styled.div`
 
     a:nth-child(n + 3):nth-child(-n + 4) {
       margin-right: 29.8px;
+    }
+
+    a:nth-child(n + 3):nth-child(-n + 5) {
+      width: 216px;
+      height: 259px;
+    }
+  }
+
+  @media (min-width: 962px) {
+    a {
+      width: 466px;
+      height: 467px;
     }
 
     a:nth-child(n + 3):nth-child(-n + 5) {
