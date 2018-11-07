@@ -25,12 +25,15 @@ export const Container = styled.div`
 
 export const ImageMobile = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   background: #8b8b8b;
+  width: 100%;
   height: 292px;
 
   img {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    max-height: 292px;
     display: block;
   }
 
@@ -85,7 +88,7 @@ export const ImageDesktop = styled.div`
 
   img {
     max-width: 100%;
-    height: auto;
+    max-height: 320px;
     display: block;
   }
 
