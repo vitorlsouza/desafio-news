@@ -7,6 +7,11 @@ export const Articles = styled.div`
 
   @media (max-width: 760px) {
     flex-direction: column;
+
+    a {
+      height: 495px;
+      margin-bottom: 30px;
+    }
   }
 
   @media (min-width: 761px) {

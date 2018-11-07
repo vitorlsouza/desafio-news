@@ -21,8 +21,8 @@ const News = ({ data }) => (
         </ImageMobile>
         <ContentMobile>
           <span>{moment(data.publishedAt.substr(0, 10)).format('DD/MM/YYYY')}</span>
-          <strong>{data.title}</strong>
-          <p>{data.description}</p>
+          <strong>{`${data.title.substr(0, 50)}...`}</strong>
+          {data.description ? <p>{`${data.description.substr(0, 100)}...`}</p> : null}
           {data.author ? (
             <strong>
 POR :
