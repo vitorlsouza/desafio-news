@@ -39,7 +39,7 @@ POR :
           {data.description ? <p>{`${data.description.substr(0, 100)}...`}</p> : null}
           {data.author ? (
             <strong>
-strongOR :
+POR :
               {data.author}
             </strong>
           ) : null}

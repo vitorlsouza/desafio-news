@@ -61,13 +61,10 @@ class NewsList extends Component {
     if (country === undefined) {
       try {
         if (props !== undefined) {
-          console.log('teste 1');
           getAllNewsRequest('1');
         } else if (search) {
-          console.log('teste 3');
           searchNewsRequest(query, page);
         } else {
-          console.log('teste 2');
           getAllNewsRequest(page);
         }
       } catch (error) {

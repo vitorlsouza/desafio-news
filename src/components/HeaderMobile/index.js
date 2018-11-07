@@ -8,13 +8,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as NewsActions from '../../store/actions/news';
 
+import Menu from './menu';
+
 import {
-  Container, SearchClose, SearchOpen, Close, CloseMenu, Separator,
+  Container, SearchClose, SearchOpen, Close,
 } from './styles';
 
 import Brand from '../../assets/brand.png';
 import SearchIcon from '../../assets/search-close.png';
-import Menu from '../../assets/menu-close.png';
+import imgMenu from '../../assets/menu-close.png';
 
 class HeaderMobile extends Component {
   static propTypes = {
@@ -25,16 +27,17 @@ class HeaderMobile extends Component {
 
   state = {
     search: false,
-    menuClass: 'itemsDiv',
     searchInput: '',
   };
 
-  handleClickCloseMenu = () => {
-    this.setState({ menuClass: 'itemsDiv' });
-  };
+  handleToggleMenu = (opcao) => {
+    const menu = document.querySelector('#menu');
 
-  handleClickOpenMenu = () => {
-    this.setState({ menuClass: 'itemsDiv -active' });
+    if (opcao === 'open') {
+      menu.setAttribute('class', 'itemsDiv -active');
+    } else {
+      menu.setAttribute('class', 'itemsDiv');
+    }
   };
 
   handleClickSearch = () => {
@@ -64,52 +67,15 @@ class HeaderMobile extends Component {
   }
 
   render() {
-    const { search, menuClass, searchInput } = this.state;
+    const { search, searchInput } = this.state;
     return (
       <Fragment>
         {!search ? (
           <Container>
-            <button type="button" className="menu" onClick={this.handleClickOpenMenu}>
-              <img src={Menu} alt="menu" className="menu-image" />
+            <button type="button" className="menu" onClick={() => this.handleToggleMenu('open')}>
+              <img src={imgMenu} alt="menu" className="menu-image" />
             </button>
-            <div className={menuClass}>
-              <ul className="items">
-                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
-                  <Link to="/" className="link">
-                    <li>Notícias em Destaque</li>
-                  </Link>
-                </button>
-                <Separator />
-                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
-                  <Link to="/brasil" className="link">
-                    <li>Notícias do Brasil</li>
-                  </Link>
-                </button>
-                <Separator />
-                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
-                  <Link to="/eua" className="link">
-                    <li>Notícias do EUA</li>
-                  </Link>
-                </button>
-                <Separator />
-                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
-                  <Link to="/argentina" className="link">
-                    <li>Notícia da Argentina</li>
-                  </Link>
-                </button>
-                <Separator />
-                <button type="button" className="item" onClick={this.handleClickCloseMenu}>
-                  <Link to="/franca" className="link">
-                    <li>Notícia da França</li>
-                  </Link>
-                </button>
-              </ul>
-              <CloseMenu>
-                <button type="button" onClick={this.handleClickCloseMenu}>
-                  X
-                </button>
-              </CloseMenu>
-            </div>
+            <Menu toggleMenu={e => this.handleToggleMenu(e)} />
             <Link to="/">
               <button type="button" onClick={this.handleClickBrand}>
                 <img src={Brand} alt="brand" className="brand" />
