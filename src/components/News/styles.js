@@ -17,6 +17,10 @@ export const Container = styled.div`
   width: inherit;
   height: inherit;
 
+  &:hover {
+    box-shadow: 2px 8px 17px 2px rgba(108, 157, 208, 1), 1px 6px 20px 4px rgba(0, 0, 0, 0.15);
+  }
+
   @media (min-width: 760px) {
     width: inherit;
     height: inherit;
@@ -34,6 +38,7 @@ export const ImageMobile = styled.div`
   img {
     width: auto;
     max-height: 100%;
+    display: block;
   }
 
   @media (min-width: 761px) {
@@ -88,6 +93,16 @@ export const ImageDesktop = styled.div`
   img {
     width: auto;
     max-height: 100%;
+
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
   }
 
   @media (max-width: 760px) {
