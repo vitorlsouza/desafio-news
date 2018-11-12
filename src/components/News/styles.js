@@ -32,9 +32,8 @@ export const ImageMobile = styled.div`
   height: 292px;
 
   img {
-    max-width: 100%;
-    max-height: 292px;
-    display: block;
+    width: auto;
+    max-height: 100%;
   }
 
   @media (min-width: 761px) {
@@ -87,9 +86,8 @@ export const ImageDesktop = styled.div`
   overflow: hidden;
 
   img {
-    max-width: 100%;
-    max-height: 320px;
-    display: block;
+    width: auto;
+    max-height: 100%;
   }
 
   @media (max-width: 760px) {
